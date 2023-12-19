@@ -89,36 +89,54 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+
 function getPasswordOptions() {
-  // Prompt for password length
-  var length = parseInt(prompt('Enter the length of your password (between 8 and 128 characters):'));
+  const result = Swal.fire({
+    title: 'Password Options',
+    html:
+      '<input type="number" id="length" class="swal2-input" placeholder="Length (8-128)" min="8" max="128">' +
+      '<br><br>' +
+      '<label><input type="checkbox" id="includeLower"> Include Lowercase</label><br>' +
+      '<label><input type="checkbox" id="includeUpper"> Include Uppercase</label><br>' +
+      '<label><input type="checkbox" id="includeNumeric"> Include Numeric</label><br>' +
+      '<label><input type="checkbox" id="includeSpecial"> Include Special Characters</label>',
+    focusConfirm: false,
+    preConfirm: () => {
+      var options = {
+        length: parseInt(document.getElementById('length').value, 10),
+        includeLower: document.getElementById('includeLower').checked,
+        includeUpper: document.getElementById('includeUpper').checked,
+        includeNumeric: document.getElementById('includeNumeric').checked,
+        includeSpecial: document.getElementById('includeSpecial').checked,
+      };
 
-  // Validate the input for length
-  if (isNaN(length) || length < 8 || length > 128) {
-    alert('Please enter a valid number between 8 and 128.');
-    return;
-  }
+      if(options.length<8 || options.length >128){
+        alert('Length Should be 8-128.');
+        return false;
+      }
 
-  // Confirm the inclusion of character types
-  var includeLower = confirm('Include lowercase characters?');
-  var includeUpper = confirm('Include uppercase characters?');
-  var includeNumeric = confirm('Include numeric characters?');
-  var includeSpecial = confirm('Include special characters?');
+      // Validate that at least one character type is selected
+      if (!options.includeLower && !options.includeUpper && !options.includeNumeric && !options.includeSpecial) {
+        alert('At least one character type must be selected.');
+        return false;
+      }
 
-  // Validate that at least one character type is selected
-  if (!includeLower && !includeUpper && !includeNumeric && !includeSpecial) {
-    alert('At least one character type must be selected.');
-    return;
-  }
+      return options;
+    },
+    showCancelButton: true,
+    cancelButtonText: 'Cancel',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      return result.value;
+    } else {
+      // Handle cancel or close actions
+      return null;
+    }
+  });
 
-  // Return an object with user input
-  return {
-    length: length,
-    includeLower: includeLower,
-    includeUpper: includeUpper,
-    includeNumeric: includeNumeric,
-    includeSpecial: includeSpecial,
-  };
+  // console.log("result")
+  // console.log(result)
+  return result;
 }
 
 // Function for getting a random element from an array
@@ -128,8 +146,8 @@ function getRandom(arr) {
 }
 
 // Function to generate password with user input
-function generatePassword() {
-  var options = getPasswordOptions();
+async function generatePassword() {
+  var options = await getPasswordOptions();
   if (!options) return;
 
   var allCharacters = [];
@@ -162,8 +180,8 @@ function generatePassword() {
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
+async function writePassword() {
+  var password = await generatePassword();
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
@@ -171,3 +189,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
