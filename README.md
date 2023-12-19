@@ -1,79 +1,82 @@
-# Module 5 Challenge: Password Generator
+# Password Generator
 
-## Overview
-
-This week’s challenge requires you to create an application that an employee can use to generate a random password based on criteria they’ve selected by modifying starter code. This app will run in the browser, and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished user interface that is responsive, ensuring that it adapts to multiple screen sizes.
-
-The password can include special characters. If you’re unfamiliar with these, see this [list of Password Special Characters from the OWASP Foundation](https://www.owasp.org/index.php/Password_special_characters).
-
-## Instructions
-
-The following image shows the web application's appearance and functionality:
-
-![password generator demo](./assets/05-javascript-challenge-demo.png)
+This is a simple web-based password generator that allows users to customize their passwords based on length and character types.
 
 
-* Generate a password when the button is clicked
-  * Present a series of prompts for password criteria
-    * Length of password
-      * At least 8 characters but no more than 128.
-    * Character types
-      * Lowercase
-      * Uppercase
-      * Numeric
-      * Special characters ($@%&*, etc)
-  * Code should validate for each input and at least one character type should be selected
-  * Once prompts are answered then the password should be generated and displayed in an alert or written to the page
+## Table of Contents
 
-## Grading Requirements
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technology)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [About Me](#aboutme)
+- [License](#license)
 
-This challenge is graded based on the following criteria: 
+## Introduction
 
-### Technical Acceptance Criteria: 40%
+This is a simple web-based password generator that allows users to customize their passwords based on length and character types.
 
-* Satisfies all of the above acceptance criteria plus the following:
+## Features
 
-  * The challenge should not produce any errors in the console when you inspect it using Chrome DevTools.
+- Choose the length of the password (between 8 and 128 characters).
+- Include or exclude character types: lowercase, uppercase, numeric, and special characters.
+- Utilizes SweetAlert2 for a user-friendly interface.
+- Generates secure and random passwords based on user preferences.
 
-### Deployment: 32%
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
 
-* Application deployed at live URL.
+## Getting Started
 
-* Application loads with no errors.
+To get started with Password Generator, follow these steps:
 
-* Application GitHub URL submitted.
+1. Clone this repository to your local machine.
 
-* GitHub repository that contains application code.
+```bash
+  git clone https://github.com/EDXBootcamp/Password-Generator.git
+```
 
-### Application Quality: 15%
+2. Open the `index.html` file in a web browser.
 
-* Application user experience is intuitive and easy to navigate.
+## Usage
 
-* Application user interface style is clean and polished.
+1. Open `index.html` in a web browser.
+2. Click on the "Generate Password" button.
+3. Provide Details on each prompt Modal
+4. The generated password will be displayed on the page.
 
-* Application resembles the mock-up functionality provided in the challenge instructions.
+## Screenshots
 
-### Repository Quality: 13%
+![Password Generator Screenshot](screenshot.png)
 
-* Repository has a unique name.
+## Deployment
 
-* Repository follows best practices for file structure and naming conventions.
+The application is deployed and accessible online. Visit the live version [here](https://edxbootcamp.github.io/Password-Generator/).
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+## Contributing
 
-* Repository contains multiple descriptive commit messages.
+If you would like to contribute to this project, please follow these steps:
 
-* Repository contains quality README file with description, screenshot, and link to deployed application.
+1. Fork the repository.
+2. Create a new branch for your feature or improvement.
+3. Make changes and submit a pull request.
 
+## 🚀 About Me
 
-## Review
+I'm a full stack developer...
 
-You are required to submit the following for review:
+## 🔗 My Links
 
-* The URL of the deployed application.
+[![gihub](https://img.shields.io/badge/my_github-000?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/tjthouhid//)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tjthouhid)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/tjthouhid)
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+## License
 
----
-
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+This project is licensed under the [MIT License](LICENSE).
